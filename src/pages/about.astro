@@ -1,0 +1,67 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="关于 - 山川有乐" description="了解山川有乐的音乐方向、创作理念和合作范围。">
+  <section class="section about-hero">
+    <div class="section-inner">
+      <span class="eyebrow">About</span>
+      <h1>把音乐、故事和现场经验，整理成可以长期抵达的作品档案。</h1>
+    </div>
+  </section>
+
+  <section class="section about-body">
+    <div class="section-inner columns">
+      <div>
+        <h2>音乐方向</h2>
+        <p>
+          山川有乐面向原创音乐、配乐、器乐段落、口播与声音叙事。网站会逐步从测试页升级为完整作品库，承载平台简介放不下的创作背景和制作说明。
+        </p>
+      </div>
+      <div>
+        <h2>合作范围</h2>
+        <p>
+          可用于展示音乐创作、项目配乐、声音设计、内容配套音乐和音乐表达相关合作。正式联系方式可以在后续接入邮箱、社交媒体和 Press Kit 下载入口。
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero {
+    background: #2d6a55;
+    color: white;
+  }
+
+  h1 {
+    max-width: 980px;
+    margin: 14px 0 0;
+    font-size: clamp(38px, 7vw, 88px);
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+  }
+
+  h2 {
+    margin: 0 0 12px;
+    font-size: 28px;
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 18px;
+  }
+
+  @media (max-width: 760px) {
+    .columns {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

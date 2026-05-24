@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import WorkCard from '@/components/WorkCard.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const works = await getCollection('works');
+---
+
+<BaseLayout title="作品库 - 山川有乐" description="山川有乐的原创音乐、配乐、声音草图和创作说明。">
+  <section class="section page-hero">
+    <div class="section-inner">
+      <span class="eyebrow">Works</span>
+      <h1>作品库</h1>
+      <p>这里集中收纳已经发布和正在形成中的声音作品。每个条目都可以继续扩展为完整作品页。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="work-grid">
+        {works.map((work) => <WorkCard work={work} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-bottom: 24px;
+  }
+
+  h1 {
+    margin: 10px 0 12px;
+    font-size: clamp(44px, 8vw, 92px);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  p {
+    max-width: 680px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 18px;
+  }
+</style>

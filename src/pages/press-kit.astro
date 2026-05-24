@@ -1,0 +1,88 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Press Kit - 山川有乐" description="山川有乐的媒体资料、简介和合作联系方式占位页。">
+  <section class="section press">
+    <div class="section-inner press-grid">
+      <div>
+        <span class="eyebrow">Press Kit</span>
+        <h1>媒体资料与合作入口</h1>
+        <p>
+          这里将用于放置短版简介、长版简介、代表作品、照片、Logo 和正式联系方式。第一版先建立结构，后续替换为真实素材。
+        </p>
+      </div>
+      <dl>
+        <div>
+          <dt>项目名称</dt>
+          <dd>山川有乐</dd>
+        </div>
+        <div>
+          <dt>方向</dt>
+          <dd>原创音乐 / 配乐 / 声音叙事</dd>
+        </div>
+        <div>
+          <dt>联系</dt>
+          <dd>待补充邮箱与社交媒体</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .press {
+    min-height: 72vh;
+    display: grid;
+    align-items: center;
+  }
+
+  .press-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 56px;
+    align-items: start;
+  }
+
+  h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(44px, 8vw, 96px);
+    line-height: 0.98;
+    letter-spacing: 0;
+  }
+
+  p {
+    max-width: 680px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 19px;
+  }
+
+  dl {
+    display: grid;
+    gap: 18px;
+    margin: 0;
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+
+  dt {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  dd {
+    margin: 4px 0 0;
+    font-size: 19px;
+    font-weight: 800;
+  }
+
+  @media (max-width: 760px) {
+    .press-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

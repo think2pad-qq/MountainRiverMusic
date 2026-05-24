@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  audio: string;
+  duration?: string;
+}
+
+const { title, audio, duration } = Astro.props;
+---
+
+<div class="audio-player">
+  <div>
+    <span class="eyebrow">当前播放</span>
+    <strong>{title}</strong>
+    {duration && <span class="duration">{duration}</span>}
+  </div>
+  <audio controls preload="metadata" src={audio}>
+    你的浏览器不支持音频播放。
+  </audio>
+</div>
+

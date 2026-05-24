@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+import AudioPlayer from '@/components/AudioPlayer.astro';
+import WorkCard from '@/components/WorkCard.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const works = await getCollection('works');
+const featured = works.find((work) => work.data.featured) ?? works[0];
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout>
+  <section class="hero">
+    <img src={featured.data.cover} alt="山川与河流的辽阔风景" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="eyebrow">Official Site</span>
+      <h1>山川有乐</h1>
+      <p>原创音乐、配乐与声音叙事。把作品、故事和创作过程，留在一个属于自己的地方。</p>
+      <div class="hero-actions">
+        <a class="button-link" href={`${base}works/`}>进入作品库</a>
+        <a class="button-link secondary hero-secondary" href={`${base}about/`}>了解音乐人</a>
+      </div>
+      <AudioPlayer title={featured.data.title} audio={featured.data.audio} duration={featured.data.duration} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Works</span>
+          <h2>近期作品</h2>
+        </div>
+        <p>每首作品都可以承载封面、音频、风格标签和创作说明。以后新增作品只需要添加 Markdown 文件。</p>
+      </div>
+      <div class="work-grid">
+        {works.map((work) => <WorkCard work={work} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section statement">
+    <div class="section-inner statement-inner">
+      <span class="eyebrow">Statement</span>
+      <h2>这里不是平台主页的替代品，而是作品的长期档案。</h2>
+      <p>
+        平台负责传播，官网负责沉淀。山川有乐会逐步收纳原创音乐、配乐项目、声音实验、创作笔记和合作信息。
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 78svh;
+    overflow: hidden;
+    display: grid;
+    align-items: center;
+    padding: clamp(72px, 10vw, 112px) clamp(20px, 5vw, 72px);
+    color: white;
+  }
+
+  .hero > img,
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(15, 18, 18, 0.82), rgba(15, 18, 18, 0.43) 48%, rgba(15, 18, 18, 0.18)),
+      linear-gradient(0deg, rgba(15, 18, 18, 0.3), rgba(15, 18, 18, 0.06));
+  }
+
+  .hero-content {
+    position: relative;
+    width: min(760px, 100%);
+    display: grid;
+    gap: 24px;
+  }
+
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(56px, 9vw, 118px);
+    line-height: 0.96;
+    letter-spacing: 0;
+  }
+
+  .hero p {
+    width: min(620px, 100%);
+    margin: 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: clamp(18px, 2vw, 24px);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .hero-secondary {
+    border-color: rgba(255, 255, 255, 0.76);
+    color: white;
+  }
+
+  .statement {
+    background: #202124;
+    color: white;
+  }
+
+  .statement-inner {
+    display: grid;
+    gap: 18px;
+  }
+
+  .statement h2 {
+    max-width: 900px;
+    margin: 0;
+    font-size: clamp(30px, 5vw, 64px);
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .statement p {
+    max-width: 680px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 18px;
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      min-height: 74svh;
+      align-items: end;
+    }
+  }
+</style>
