@@ -2,16 +2,12 @@ backend:
   name: github
   repo: think2pad-qq/MountainRiverMusic
   branch: main
-
   base_url: https://decap-oauth-worker.2308057418.workers.dev
 
-# ── 本地模式（不需要联网，直接读写本机文件） ──
-# 如果你在本地开发，运行: npx decap-cms-proxy-server
-# 然后取消下面两行的注释:
+# 本地开发时可运行 `npx decap-cms-proxy-server`，再启用下面两行。
 # local_backend: true
 # proxy_url: http://localhost:8081/api/v1
 
-# 图片上传到 public/images/
 media_folder: "public/images"
 public_folder: "/MountainRiverMusic/images"
 
@@ -26,25 +22,22 @@ collections:
     slug: "{{year}}-{{slug}}"
     summary: "{{title}} ({{year}})"
     sortable_fields: ["year", "title"]
-
+    preview_path: "works/{{slug}}"
     fields:
       - { label: "标题", name: "title", widget: "string" }
       - { label: "副标题", name: "subtitle", widget: "string", required: false }
       - { label: "年份", name: "year", widget: "number", value_type: "int" }
       - { label: "时长", name: "duration", widget: "string", hint: "例如 3:27" }
-
       - label: "风格标签"
         name: "style"
         widget: "list"
         field: { label: "标签", name: "tag", widget: "string" }
-
       - label: "封面图"
         name: "cover"
         widget: "image"
         media_folder: "public/images"
         public_folder: "/MountainRiverMusic/images"
-        hint: "建议尺寸 1200×1200 或 16:9，JPEG/PNG"
-
+        hint: "建议尺寸 1200x1200 或 16:9，JPEG/PNG"
       - label: "音频文件"
         name: "audio"
         widget: "file"
@@ -52,17 +45,11 @@ collections:
         public_folder: "/MountainRiverMusic/audio"
         hint: "支持 .mp3 / .wav / .flac，也支持外部 URL"
         choose_url: true
-
       - { label: "精选（首页展示）", name: "featured", widget: "boolean", default: false, required: false }
-
       - label: "外部链接"
         name: "externalLinks"
         widget: "object"
         required: false
         fields:
           - { label: "网易云音乐", name: "netease", widget: "string", required: false, hint: "网易云音乐作品页完整 URL" }
-
       - { label: "正文", name: "body", widget: "markdown", hint: "作品介绍、编曲思路、制作人员等" }
-
-    # 作品正文的正文预览
-    preview_path: "works/{{slug}}"
