@@ -5,7 +5,7 @@ year: 2026
 style: ["原创", "DJ" , "重低音", "炸场"]
 duration: "3:27"
 cover: "/MountainRiverMusic/images/fenghuolun.JPG"
-audio: "/MountainRiverMusic/audio/fenghuolun.wav"
+audio: "/MountainRiverMusic/audio/fenghuolun.mp3"
 featured: true
 externalLinks:
   netease: "https://music.163.com/song/3383241311"
