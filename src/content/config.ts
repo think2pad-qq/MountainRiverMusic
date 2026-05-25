@@ -9,13 +9,11 @@ const works = defineCollection({
     style: z.array(z.string()),
     duration: z.string(),
     cover: z.string(),
-    audio: z.string().url(),
+    audio: z.string(),
     featured: z.boolean().default(false),
     externalLinks: z
       .object({
-        bilibili: z.string().url().optional(),
-        netease: z.string().url().optional(),
-        soundcloud: z.string().url().optional()
+        netease: z.string().url().optional()
       })
       .optional()
   })

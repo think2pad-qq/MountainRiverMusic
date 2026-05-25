@@ -1,16 +1,14 @@
 ---
-title: "山川有乐 Demo"
-subtitle: "为站点第一版准备的主推占位作品"
+title: "无敌风火轮"
+subtitle: "于逆风中觉醒的狂野律动，踏碎尘嚣的声音狂欢"
 year: 2026
-style: ["原创", "器乐", "声音叙事"]
-duration: "6:12"
-cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Mountain_landscape_with_a_river_close_to_Leh_Ladakh.jpg/1280px-Mountain_landscape_with_a_river_close_to_Leh_Ladakh.jpg"
-audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+style: ["原创", "DJ" , "重低音", "炸场"]
+duration: "3:27"
+cover: "/MountainRiverMusic/images/fenghuolun.JPG"
+audio: "/MountainRiverMusic/audio/fenghuolun.wav"
 featured: true
 externalLinks:
-  bilibili: "https://www.bilibili.com"
+  netease: "https://music.163.com/song/3383241311"
 ---
 
-这首作品目前使用公开示例音频作为占位。正式发布时，可以替换为你的原创音频、封面和完整创作说明。
-
-第一版网站先验证信息结构：作品能够被单独展示，播放器可以工作，作品背景可以作为长期内容沉淀。
+每一首，都是给不甘平凡的你。适合深夜 emo、卡点视频、车载炸场，戴上耳机，一起上头。

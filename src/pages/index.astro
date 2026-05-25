@@ -5,23 +5,31 @@ import WorkCard from '@/components/WorkCard.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 const works = await getCollection('works');
-const featured = works.find((work) => work.data.featured) ?? works[0];
+
+// 封面图：始终使用独立图片
+const heroImage = "/MountainRiverMusic/images/hero-default.jpg";
+
+// 播放器：优先用 featured 作品，否则用第一个作品
+const featured = works.find((work) => work.data.featured);
+const playerWork = featured || works[0];
+
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout>
   <section class="hero">
-    <img src={featured.data.cover} alt="山川与河流的辽阔风景" />
+    <img src={heroImage} alt="山川与河流的辽阔风景" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="eyebrow">Official Site</span>
       <h1>山川有乐</h1>
-      <p>原创音乐、配乐与声音叙事。把作品、故事和创作过程，留在一个属于自己的地方。</p>
+      <p>普在尘泥，落脚于万象喧嚣；孤守自洁，归真于音符方寸。
+把在俗世中游历的灵魂，留在属于山川与乐音的自留地。</p>
       <div class="hero-actions">
         <a class="button-link" href={`${base}works/`}>进入作品库</a>
         <a class="button-link secondary hero-secondary" href={`${base}about/`}>了解音乐人</a>
       </div>
-      <AudioPlayer title={featured.data.title} audio={featured.data.audio} duration={featured.data.duration} />
+      <AudioPlayer title={playerWork.data.title} audio={playerWork.data.audio} duration={playerWork.data.duration} />
     </div>
   </section>
 
@@ -43,9 +51,10 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   <section class="section statement">
     <div class="section-inner statement-inner">
       <span class="eyebrow">Statement</span>
-      <h2>这里不是平台主页的替代品，而是作品的长期档案。</h2>
+      <h2>声音在此流淌，也在此共享。</h2>
       <p>
-        平台负责传播，官网负责沉淀。山川有乐会逐步收纳原创音乐、配乐项目、声音实验、创作笔记和合作信息。
+        本站展示的部分非商业作品遵循 Creative Commons（CC协议）开放使用。
+        如果你是独立播客主播、视频UP主或学生导演，欢迎在注明出处的前提下，让这些声音成为你作品的一部分。商业使用请提前联系授权。
       </p>
     </div>
   </section>

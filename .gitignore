@@ -3,5 +3,8 @@ dist/
 .astro/
 .env
 .env.*
+.reasonix/
+CLAUDE.md
 npm-debug.log*
+decap-oauth-worker/
 dev-server.*.log

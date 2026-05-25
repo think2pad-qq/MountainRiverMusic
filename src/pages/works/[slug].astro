@@ -36,9 +36,7 @@ const { Content } = await render(work);
         {work.data.externalLinks && (
           <div class="external-links">
             <h2>外部链接</h2>
-            {work.data.externalLinks.bilibili && <a href={work.data.externalLinks.bilibili}>Bilibili</a>}
             {work.data.externalLinks.netease && <a href={work.data.externalLinks.netease}>网易云音乐</a>}
-            {work.data.externalLinks.soundcloud && <a href={work.data.externalLinks.soundcloud}>SoundCloud</a>}
           </div>
         )}
       </div>
