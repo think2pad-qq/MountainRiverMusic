@@ -14,8 +14,7 @@ const { title, audio, duration } = Astro.props;
     <strong>{title}</strong>
     {duration && <span class="duration">{duration}</span>}
   </div>
-  <audio controls preload="metadata" src={audio}>
+  <audio controls preload="none" src={audio}>
     你的浏览器不支持音频播放。
   </audio>
 </div>
-

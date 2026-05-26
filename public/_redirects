@@ -1,0 +1,3 @@
+# Cloudflare Pages — 重写 /MountainRiverMusic/ 路径到根目录
+# 兼容 Astro 的 base: '/MountainRiverMusic' 配置
+/MountainRiverMusic/* /:splat 200

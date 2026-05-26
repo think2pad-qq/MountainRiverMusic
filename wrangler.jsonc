@@ -1,0 +1,5 @@
+{
+  "name": "decap-oauth-worker",
+  "compatibility_date": "2026-05-25",
+  "main": "scripts/decap-oauth-worker.js"
+}

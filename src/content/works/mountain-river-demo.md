@@ -4,7 +4,7 @@ subtitle: "于逆风中觉醒的狂野律动，踏碎尘嚣的声音狂欢"
 year: 2026
 style: ["原创", "DJ" , "重低音", "炸场"]
 duration: "3:27"
-cover: "/MountainRiverMusic/images/fenghuolun.JPG"
+cover: "/MountainRiverMusic/images/fenghuolun.webp"
 audio: "/MountainRiverMusic/audio/fenghuolun.mp3"
 featured: true
 externalLinks:
