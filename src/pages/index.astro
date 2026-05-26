@@ -7,7 +7,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 const works = await getCollection('works');
 
 // 封面图：始终使用独立图片
-const heroImage = "/MountainRiverMusic/images/hero-default.webp";
+const heroImage = "https://pub-87eb1f986b9944959ac542319a76a55e.r2.dev/hero-default.webp";
 
 // 播放器：优先用 featured 作品，否则用第一个作品
 const featured = works.find((work) => work.data.featured);

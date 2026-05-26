@@ -8,3 +8,7 @@ CLAUDE.md
 npm-debug.log*
 decap-oauth-worker/
 dev-server.*.log
+
+# 媒体文件 — 已迁移到 Cloudflare R2
+public/audio/
+public/images/
