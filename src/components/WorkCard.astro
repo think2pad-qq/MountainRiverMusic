@@ -17,7 +17,7 @@ const href = `${base}works/${work.id.replace(/\.md$/, '')}/`;
   <div class="work-card-body">
     <div class="work-meta">
       <span>{work.data.year}</span>
-      <span>{work.data.duration}</span>
+      {work.data.duration && <span>{work.data.duration}</span>}
     </div>
     <h3><a href={href}>{work.data.title}</a></h3>
     {work.data.subtitle && <p>{work.data.subtitle}</p>}

@@ -20,7 +20,7 @@ const { Content } = await render(work);
     <section class="detail-hero">
       <img src={work.data.cover} alt={`${work.data.title} 封面`} />
       <div class="detail-copy">
-        <span class="eyebrow">{work.data.year} / {work.data.duration}</span>
+        <span class="eyebrow">{work.data.year}{work.data.duration ? ` / ${work.data.duration}` : ''}</span>
         <h1>{work.data.title}</h1>
         {work.data.subtitle && <p>{work.data.subtitle}</p>}
         <div class="tag-row">

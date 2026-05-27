@@ -7,7 +7,7 @@ const works = defineCollection({
     subtitle: z.string().optional(),
     year: z.number(),
     style: z.array(z.string()),
-    duration: z.string(),
+    duration: z.string().default(''),
     cover: z.string(),
     audio: z.string(),
     showOnHome: z.boolean().default(false),

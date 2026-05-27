@@ -14,8 +14,10 @@ const heroImage = heroWorks.length > 0 ? heroWorks[0].data.cover : "https://pub-
 const playerWorks = works.filter((w) => w.data.useAsHeroPlayer).sort((a, b) => b.data.year - a.data.year);
 const playerWork = playerWorks.length > 0 ? playerWorks[0] : null;
 
-// 近期作品列表：只展示 showOnHome 的作品
-const homeWorks = works.filter((w) => w.data.showOnHome);
+// 近期作品列表：只展示 showOnHome 的作品，按年份倒序排列
+const homeWorks = works
+  .filter((w) => w.data.showOnHome)
+  .sort((a, b) => b.data.year - a.data.year);
 
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
