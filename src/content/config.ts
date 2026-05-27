@@ -10,7 +10,9 @@ const works = defineCollection({
     duration: z.string(),
     cover: z.string(),
     audio: z.string(),
-    featured: z.boolean().default(false),
+    showOnHome: z.boolean().default(false),
+    useAsHeroCover: z.boolean().default(false),
+    useAsHeroPlayer: z.boolean().default(false),
     externalLinks: z
       .object({
         netease: z.string().url().optional()

@@ -6,7 +6,9 @@ style: ["氛围", "配乐", "草图"]
 duration: "3:40"
 cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Mountain_landscape_with_a_river_close_to_Leh_Ladakh.jpg/1024px-Mountain_landscape_with_a_river_close_to_Leh_Ladakh.jpg"
 audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
-featured: false
+showOnHome: false
+useAsHeroCover: false
+useAsHeroPlayer: false
 ---
 
 这是一个用于测试作品库布局的占位条目。后续可以替换为你的短配乐、创作草图或未正式发行的片段。

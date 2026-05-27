@@ -6,12 +6,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 const works = await getCollection('works');
 
-// 封面图：始终使用独立图片
-const heroImage = "https://pub-87eb1f986b9944959ac542319a76a55e.r2.dev/hero-default.webp";
+// 首页封面图：从 useAsHeroCover 作品中选最新的
+const heroWorks = works.filter((w) => w.data.useAsHeroCover).sort((a, b) => b.data.year - a.data.year);
+const heroImage = heroWorks.length > 0 ? heroWorks[0].data.cover : "https://pub-87eb1f986b9944959ac542319a76a55e.r2.dev/hero-default.webp";
 
-// 播放器：优先用 featured 作品，否则用第一个作品
-const featured = works.find((work) => work.data.featured);
-const playerWork = featured || works[0];
+// 首页播放器：从 useAsHeroPlayer 作品中选最新的
+const playerWorks = works.filter((w) => w.data.useAsHeroPlayer).sort((a, b) => b.data.year - a.data.year);
+const playerWork = playerWorks.length > 0 ? playerWorks[0] : null;
+
+// 近期作品列表：只展示 showOnHome 的作品
+const homeWorks = works.filter((w) => w.data.showOnHome);
 
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
@@ -29,7 +33,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
         <a class="button-link" href={`${base}works/`}>进入作品库</a>
         <a class="button-link secondary hero-secondary" href={`${base}about/`}>了解音乐人</a>
       </div>
-      <AudioPlayer title={playerWork.data.title} audio={playerWork.data.audio} duration={playerWork.data.duration} />
+      {playerWork && <AudioPlayer title={playerWork.data.title} audio={playerWork.data.audio} duration={playerWork.data.duration} />}
     </div>
   </section>
 
@@ -43,7 +47,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
       </div>
       <div class="work-grid">
-        {works.map((work) => <WorkCard work={work} />)}
+        {homeWorks.map((work) => <WorkCard work={work} />)}
       </div>
     </div>
   </section>

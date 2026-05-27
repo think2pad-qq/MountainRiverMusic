@@ -45,7 +45,9 @@ collections:
         public_folder: "/MountainRiverMusic/audio"
         hint: "支持 .mp3 / .wav / .flac，也支持外部 URL"
         choose_url: true
-      - { label: "精选（首页展示）", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "展示在近期作品", name: "showOnHome", widget: "boolean", default: false, required: false }
+      - { label: "设为首页封面", name: "useAsHeroCover", widget: "boolean", default: false, required: false }
+      - { label: "设为首页播放器", name: "useAsHeroPlayer", widget: "boolean", default: false, required: false }
       - label: "外部链接"
         name: "externalLinks"
         widget: "object"

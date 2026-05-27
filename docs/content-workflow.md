@@ -90,7 +90,9 @@ style: ["风格1", "风格2"]
 duration: "3:27"
 cover: "https://pub-87eb1f986b9944959ac542319a76a55e.r2.dev/my-image.webp"
 audio: "https://pub-f0672857274c48cb88a2e2264110b0d4.r2.dev/my-song.mp3"
-featured: false
+showOnHome: false
+useAsHeroCover: false
+useAsHeroPlayer: false
 externalLinks:
   netease: "https://music.163.com/song/xxx"
 ---
@@ -99,9 +101,11 @@ externalLinks:
 可以写多段。
 ```
 
-**关于 `featured` 字段**：
-- `featured: true` → 封面图用该作品的 `cover`，播放器用该作品的 `audio`
-- 所有作品 `featured: false` → 封面图用 `hero-default.webp`，播放器用第一个作品
+**关于首页展示字段**：
+- `showOnHome: true` → 出现在首页「近期作品」列表
+- `useAsHeroCover: true` → 这首的封面作为首页大图
+- `useAsHeroPlayer: true` → 这首的音频作为首页默认播放器
+- 三个字段均默认 `false`，全关时仅出现在「作品库」
 
 **关于 `externalLinks`**：
 - 字段名必须是英文 `netease`

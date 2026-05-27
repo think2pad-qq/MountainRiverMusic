@@ -156,7 +156,9 @@ type WorkForm = {
   style: string[];
   cover: string;
   audio: string;
-  featured: boolean;
+  showOnHome: boolean;
+  useAsHeroCover: boolean;
+  useAsHeroPlayer: boolean;
   externalLinks?: {
     netease?: string;
   };
@@ -177,7 +179,9 @@ style:
   - 器乐
 cover: "/MountainRiverMusic/images/example.jpg"
 audio: "/MountainRiverMusic/audio/example.mp3"
-featured: true
+showOnHome: true
+useAsHeroCover: true
+useAsHeroPlayer: true
 externalLinks:
   netease: ""
 ---
