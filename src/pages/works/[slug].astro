@@ -15,7 +15,7 @@ const { work } = Astro.props;
 const { Content } = await render(work);
 ---
 
-<BaseLayout title={`${work.data.title} - 山川有乐`} description={work.data.subtitle ?? `${work.data.title} 的作品详情。`}>
+<BaseLayout title={`${work.data.title} - 普洁工作室`} description={work.data.subtitle ?? `${work.data.title} 的作品详情。`}>
   <article class="work-detail">
     <section class="detail-hero">
       <img src={work.data.cover} alt={`${work.data.title} 封面`} />

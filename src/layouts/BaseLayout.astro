@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = '山川有乐 - 原创音乐与声音叙事',
-  description = '山川有乐是一个面向原创音乐、配乐、声音叙事和创作笔记的专业音乐人网站。',
+  title = '普洁工作室 - 原创音乐与声音叙事',
+  description = '普洁工作室是一个面向原创音乐、配乐、声音叙事和创作笔记的专业音乐人网站。',
   image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Mountain_landscape_with_a_river_close_to_Leh_Ladakh.jpg/1280px-Mountain_landscape_with_a_river_close_to_Leh_Ladakh.jpg'
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -24,7 +24,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="山川有乐" />
+    <meta property="og:site_name" content="普洁工作室" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
