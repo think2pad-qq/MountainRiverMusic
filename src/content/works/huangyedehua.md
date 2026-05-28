@@ -8,6 +8,8 @@ audio: "https://pub-f0672857274c48cb88a2e2264110b0d4.r2.dev/b91515babae64fa09f9a
 showOnHome: true
 useAsHeroCover: false
 useAsHeroPlayer: false
+externalLinks:
+  netease: "<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=3370975452&auto=1&height=66"></iframe>"
 ---
 
 [Verse]
