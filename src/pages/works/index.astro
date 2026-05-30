@@ -4,6 +4,16 @@ import WorkCard from '@/components/WorkCard.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
 const works = await getCollection('works');
+
+// 按年份分组（倒序）
+const grouped = works.reduce((acc, w) => {
+  const year = w.data.year || 0
+  if (!acc[year]) acc[year] = []
+  acc[year].push(w)
+  return acc
+}, {} as Record<number, typeof works>)
+
+const years = Object.keys(grouped).map(Number).sort((a, b) => b - a)
 ---
 
 <BaseLayout title="作品库 - 普洁工作室" description="普洁工作室的原创音乐、配乐、声音草图和创作说明。">
@@ -17,9 +27,14 @@ const works = await getCollection('works');
 
   <section class="section">
     <div class="section-inner">
-      <div class="work-grid">
-        {works.map((work) => <WorkCard work={work} />)}
-      </div>
+      {years.map((year) => (
+        <div class="year-group">
+          <h2 class="year-heading">{year}</h2>
+          <div class="work-grid">
+            {grouped[year].map((work) => <WorkCard work={work} />)}
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 </BaseLayout>
@@ -29,7 +44,7 @@ const works = await getCollection('works');
     padding-bottom: 24px;
   }
 
-  h1 {
+    h1 {
     margin: 10px 0 12px;
     font-size: clamp(44px, 8vw, 92px);
     line-height: 1;
@@ -41,5 +56,24 @@ const works = await getCollection('works');
     margin: 0;
     color: var(--muted);
     font-size: 18px;
+  }
+
+  .year-group {
+    margin-bottom: 40px;
+  }
+
+  .year-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .year-heading {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-tertiary, #999);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border, #e8e6e1);
   }
 </style>
