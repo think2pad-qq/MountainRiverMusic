@@ -157,3 +157,16 @@ const { Content } = await render(entry);
     margin-top: 32px;
   }
 </style>
+
+<script>
+  // 互斥播放：同一时刻只有一个音频可以播放
+  document.querySelector('.track-list')?.addEventListener('play', (e) => {
+    const target = e.target
+    if (!(target instanceof HTMLAudioElement)) return
+    document.querySelectorAll('.track-player').forEach((el) => {
+      if (el !== target && el instanceof HTMLAudioElement && !el.paused) {
+        el.pause()
+      }
+    })
+  }, true)
+</script>
