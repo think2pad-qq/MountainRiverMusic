@@ -8,9 +8,9 @@ duration: ""
 type: single
 cover: "https://pub-87eb1f986b9944959ac542319a76a55e.r2.dev/029d527192824d39b8aaa349ac4bf3a1.webp"
 audio: "https://pub-f0672857274c48cb88a2e2264110b0d4.r2.dev/ae77114cb0a04cbebecc56253fd7a3a2.mp3"
-showOnHome: true
+showOnHome: false
 useAsHeroCover: false
-useAsHeroPlayer: true
+useAsHeroPlayer: false
 projectId: "f91455e8-6a2f-40e4-b6db-c2eef68b75c4"
 ---
 
