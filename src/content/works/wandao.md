@@ -9,6 +9,12 @@ cover: "https://pub-87eb1f986b9944959ac542319a76a55e.r2.dev/9a377b633b2d4cbdb3fd
 tracks:
   - title: "暗轨潜行"
     audio: "https://pub-f0672857274c48cb88a2e2264110b0d4.r2.dev/1dbe3ffbe84846399fd473dda2d9c1c5.mp3"
+  - title: "火武幻"
+    audio: "https://pub-f0672857274c48cb88a2e2264110b0d4.r2.dev/10ccaf5cae69497b9c1c33d4052fe267.mp3"
+  - title: "美人战歌"
+    audio: "https://pub-f0672857274c48cb88a2e2264110b0d4.r2.dev/293e29de188b4bc5a5176ef471b33a39.mp3"
+  - title: "逆转阴阳"
+    audio: "https://pub-f0672857274c48cb88a2e2264110b0d4.r2.dev/3f404584493f41d0b737ce934e8d52a0.mp3"
 showOnHome: false
 useAsHeroCover: false
 useAsHeroPlayer: false
