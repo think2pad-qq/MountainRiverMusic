@@ -10,6 +10,13 @@ const works = defineCollection({
     duration: z.string().default(''),
     cover: z.string(),
     audio: z.string(),
+    type: z.string().default('single'),
+    tracks: z.array(z.object({
+      title: z.string(),
+      audio: z.string().optional(),
+      duration: z.string().optional(),
+      cover: z.string().optional(),
+    })).optional(),
     showOnHome: z.boolean().default(false),
     useAsHeroCover: z.boolean().default(false),
     useAsHeroPlayer: z.boolean().default(false),

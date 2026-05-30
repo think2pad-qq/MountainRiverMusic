@@ -6,23 +6,29 @@ interface Props {
 }
 
 const { work } = Astro.props;
+const { data } = work;
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-const href = `${base}works/${work.id.replace(/\.md$/, '')}/`;
+const isAlbum = data.type === 'album';
+const trackCount = data.tracks?.length || 0;
+const href = `${base}${isAlbum ? 'albums' : 'works'}/${work.id.replace(/\.md$/, '')}/`;
 ---
 
 <article class="work-card">
-  <a href={href} class="work-cover" aria-label={`查看作品：${work.data.title}`}>
-    <img src={work.data.cover} alt={`${work.data.title} 封面`} loading="lazy" />
+  <a href={href} class="work-cover" aria-label={`查看${isAlbum ? '专辑' : '作品'}：${data.title}`}>
+    <img src={data.cover} alt={`${data.title} 封面`} loading="lazy" />
   </a>
   <div class="work-card-body">
     <div class="work-meta">
-      <span>{work.data.year}</span>
-      {work.data.duration && <span>{work.data.duration}</span>}
+      <span>{data.year}</span>
+      {isAlbum
+        ? <span>{trackCount} 首</span>
+        : data.duration && <span>{data.duration}</span>
+      }
     </div>
-    <h3><a href={href}>{work.data.title}</a></h3>
-    {work.data.subtitle && <p>{work.data.subtitle}</p>}
+    <h3><a href={href}>{data.title}</a></h3>
+    {data.subtitle && <p>{data.subtitle}</p>}
     <div class="tag-row">
-      {work.data.style.map((tag) => <span>{tag}</span>)}
+      {data.style.map((tag) => <span>{tag}</span>)}
     </div>
   </div>
 </article>

@@ -1,0 +1,159 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('works');
+  return entries
+    .filter(e => e.data.type === 'album')
+    .map(e => ({
+      params: { slug: e.id.replace(/\.md$/, '') },
+      props: { entry: e }
+    }));
+}
+
+const { entry } = Astro.props;
+const { title, subtitle, year, style, tracks, cover } = entry.data;
+const trackCount = tracks?.length || 0;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${title} - 普洁工作室`} description={subtitle ?? `${title} 的专辑详情。`}>
+  <article class="album-detail">
+    <section class="detail-hero">
+      <img src={cover} alt={`${title} 封面`} />
+      <div class="detail-copy">
+        <span class="eyebrow">{year} / {trackCount} 首</span>
+        <h1>{title}</h1>
+        {subtitle && <p>{subtitle}</p>}
+        <div class="tag-row">
+          {style?.map((tag) => <span>{tag}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="track-section-title">曲目</h2>
+        <ol class="track-list">
+          {tracks?.map((track, i) => (
+            <li class="track-item">
+              <span class="track-num">{i + 1}</span>
+              <div class="track-info">
+                <span class="track-title">{track.title}</span>
+                {track.duration && <span class="track-duration">{track.duration}</span>}
+              </div>
+              {track.audio && (
+                <audio controls preload="none" class="track-player">
+                  <source src={track.audio} />
+                </audio>
+              )}
+            </li>
+          ))}
+        </ol>
+
+        {entry.body && (
+          <div class="album-description prose">
+            <h2>关于这张专辑</h2>
+            <Content />
+          </div>
+        )}
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .album-detail {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-bottom: 64px;
+  }
+
+  .detail-hero {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr);
+    gap: 32px;
+    padding: 48px 0;
+  }
+
+  .detail-hero img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .detail-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.02em;
+  }
+
+  .track-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .track-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .track-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .track-item:last-child {
+    border-bottom: none;
+  }
+
+  .track-num {
+    width: 24px;
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .track-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .track-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .track-duration {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    margin-top: 2px;
+  }
+
+  .track-player {
+    width: 160px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .album-description {
+    margin-top: 32px;
+  }
+</style>
