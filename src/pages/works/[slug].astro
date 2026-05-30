@@ -5,10 +5,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const works = await getCollection('works');
-  return works.map((work) => ({
-    params: { slug: work.id.replace(/\.md$/, '') },
-    props: { work }
-  }));
+  return works
+    .filter(work => work.data.type !== 'album')
+    .map((work) => ({
+      params: { slug: work.id.replace(/\.md$/, '') },
+      props: { work }
+    }));
 }
 
 const { work } = Astro.props;
