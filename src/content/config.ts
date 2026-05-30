@@ -8,8 +8,8 @@ const works = defineCollection({
     year: z.number(),
     style: z.array(z.string()),
     duration: z.string().default(''),
-    cover: z.string(),
-    audio: z.string(),
+    cover: z.string().default(''),
+    audio: z.string().default(''),
     type: z.string().default('single'),
     tracks: z.array(z.object({
       title: z.string(),
