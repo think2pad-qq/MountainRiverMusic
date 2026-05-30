@@ -2,6 +2,7 @@
 title: "妈妈你在哪里呀"
 subtitle: "星星是她的家"
 year: 2026
+style: []
 duration: ""
 type: single
 cover: "https://pub-87eb1f986b9944959ac542319a76a55e.r2.dev/cf957cc5640247f68d9874c383773823.webp"
