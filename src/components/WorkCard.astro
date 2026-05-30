@@ -13,9 +13,10 @@ const trackCount = data.tracks?.length || 0;
 const href = `${base}${isAlbum ? 'albums' : 'works'}/${work.id.replace(/\.md$/, '')}/`;
 ---
 
-<article class="work-card">
+<article class="work-card" class:list={{ 'work-card--album': isAlbum }}>
   <a href={href} class="work-cover" aria-label={`查看${isAlbum ? '专辑' : '作品'}：${data.title}`}>
     <img src={data.cover} alt={`${data.title} 封面`} loading="lazy" />
+    {isAlbum && <span class="work-badge">专辑</span>}
   </a>
   <div class="work-card-body">
     <div class="work-meta">
