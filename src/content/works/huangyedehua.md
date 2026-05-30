@@ -7,9 +7,9 @@ style:
 duration: ""
 cover: "https://pub-87eb1f986b9944959ac542319a76a55e.r2.dev/f45d06a194b048d0979911424dd3cc40.webp"
 audio: "https://pub-f0672857274c48cb88a2e2264110b0d4.r2.dev/17759070241c48f59bdaef7c4a59653d.mp3"
-showOnHome: true
+showOnHome: false
 useAsHeroCover: false
-useAsHeroPlayer: true
+useAsHeroPlayer: false
 projectId: "f91455e8-6a2f-40e4-b6db-c2eef68b75c4"
 ---
 
